@@ -1,9 +1,17 @@
 import bodyParser from 'body-parser'
 import express, { Request, Response } from 'express'
 
-const app = express()
 
-app.use(bodyParser.json())
+import createMQProducer from './producer';
+
+const PORT = 3001;
+const AMQP_URL = 'amqp://localhost:5672';
+const QUEUE_NAME = 'auth';
+
+
+const app = express();
+
+app.use(bodyParser.json());
 
 app.post('/register', (req: Request, res: Response) => {
   const { email, password } = req.body
