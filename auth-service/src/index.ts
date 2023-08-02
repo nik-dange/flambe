@@ -1,36 +1,24 @@
-import bodyParser from 'body-parser'
-import express, { Request, Response } from 'express'
+import express, { Request, Response } from 'express';
+import bodyParser from 'body-parser';
 
 
 import createMQProducer from './producer';
 
-const PORT = 3001;
-const AMQP_URL = 'amqp://localhost:5672';
-const QUEUE_NAME = 'auth';
+// const PORT = 3001;
+// const AMQP_URL = 'amqp://localhost:5672';
+// const QUEUE_NAME = 'auth';
 
 
-const app = express();
+const server = express();
 
-app.use(bodyParser.json());
+server.use(bodyParser.json());
+server.use(express.urlencoded({ extended: true}));
+server.use(express.json());
+server.use('/api', require('./api'));
 
-app.post('/register', (req: Request, res: Response) => {
-  const { email, password } = req.body
-  console.log('Registering user')
 
-  return res.send('OK')
+server.listen(5000, () => {
+  console.log(`Server is listening on port 5000`);
 });
 
-app.post('/login', (req: Request, res: Response) => {
-  const { email, password } = req.body
-  console.log('Login user')
-
-  return res.send('OK')
-});
-
-app.get('/', (req: Request, res: Response) => {
-  res.send('hi mom')
-});
-
-app.listen(5000, () => {
-  console.log(`Server is listening on port 5000`)
-});
+export default server;
