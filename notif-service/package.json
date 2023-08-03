@@ -1,7 +1,7 @@
 {
-  "name": "auth-service",
+  "name": "notif-service",
   "version": "1.0.0",
-  "description": "Authentication service for mock food delivery app",
+  "description": "Notification service v2",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

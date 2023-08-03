@@ -9,6 +9,6 @@ Some of the technologies I'm using are:
 
 And eventually,
 
+- Perhaps another service written in Go since Go is cool
 - Docker, to containerize each microservice
 - Kubernetes, to help deploy and maintain the incredible scale my new project will demand :)
-
