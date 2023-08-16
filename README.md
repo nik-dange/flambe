@@ -1,6 +1,6 @@
-# food-delivery-microservices
+# Flambé: A Food Delivery Service
 
-This is an event-driven, microservices based implementation of a food delivery service! 
+This is an event-driven, microservices based implementation of a food ordering/delivery service! 
 
 Some of the technologies I'm using are:
 
