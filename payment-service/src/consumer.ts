@@ -17,14 +17,17 @@ const createMQConsumer = (amqpURl: string, queueName: string) => {
         chan.assertQueue(queueName, { durable: true });
         chan.consume(queueName, (msg: Message | null) => {
           if (msg) {
+            console.log("Running consumer");
             // parse potential message in json format
             const parsed = JSON.parse(msg.content.toString());
+            console.log('Parsed message: ', parsed);
+            console.log("Parsed action: ", parsed.action);
             // various logic depending on the action of the message
             switch (parsed.action) {
-              case 'REGISTER':
+              case "REGISTER":
                 console.log('Consuming REGISTER action', parsed.data);
                 break;
-              case 'LOGIN':
+              case "LOGIN":
                 console.log('Consuming LOGIN action', parsed.data);
                 break;
               default:
@@ -33,7 +36,7 @@ const createMQConsumer = (amqpURl: string, queueName: string) => {
           }
         }, { noAck: true })
       })
-    })
+    });
   }
 }
 
