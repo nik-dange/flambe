@@ -1,6 +1,11 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+
 const config = {
-    port: 3000,
-    amqpUrl: 'secret',
+    port: process.env.PORT,
+    amqpUrl: process.env.AMQP_URL as string,
   };
   
   export default config;

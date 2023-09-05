@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
-import createMQProducer from '../../producer';
-import config from '../../config';
+import createMQProducer from '../producer';
+import config from '../config';
 
 const router = express.Router();
 
