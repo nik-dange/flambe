@@ -1,6 +1,10 @@
-import server from './src'
-import config from './src/config'
+import express, { Application } from "express";
 
-server.listen(config.port, () => {
-  console.log(`Server starting on port ${config.port}`)
-})
+const server: Application = express();
+
+server.use(express.urlencoded({ extended: true}));
+server.use(express.json());
+
+server.use('/api/', require('./api'));
+
+export default server;
